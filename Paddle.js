@@ -11,6 +11,11 @@ function Paddle(side) {
     this.w = 12;
     this.h = 70;
 
+    this.borderRight = this.x + (this.w/2);
+    this.borderLeft = this.x - (this.w/2);
+    this.borderTop = this.y - (this.h/2);
+    this.borderBot = this.x + (this.h/2);
+
     this.show = function () {
         fill(255);
         rectMode(CENTER);

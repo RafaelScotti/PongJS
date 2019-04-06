@@ -1,4 +1,3 @@
-
 var field;
 var paddle1;
 var paddle2;
@@ -8,13 +7,10 @@ function setup() {
     pixelDensity(1);
     createCanvas(900, 350); // 720x350
 
-
     field = new Field();
     paddle1 = new Paddle("LEFT");
     paddle2 = new Paddle("RIGHT");
     ball = new Ball();
-
-
 }
 
 function draw() {
@@ -34,10 +30,8 @@ function draw() {
     if(checkCollisionPaddle1(ball, paddle1)){
         ball.xSpeed*=-1;
     }
-
     textSize(32);
     text('Pong', 10, height/2);
-
 }
 
 function keyReleased() {
@@ -61,15 +55,20 @@ function keyPressed() {
     return false; // prevent default
 }
 
-function checkCollisionPaddle2(ball, paddleRight) {
-    if(ball.x >= paddleRight.x && ball.y < paddleRight.y + paddleRight.h/2 && ball.y > paddleRight.y - paddleRight.h/2){
+function checkCollisionPaddle1(ball, paddleLeft) {
+    if(ball.borderBot >= paddleLeft.borderTop && ball.borderTop <= paddleLeft.borderBot){
+       // if(){
+            //implementar colisão no ponto y
+        //}
         return true;
     }
 }
 
-function checkCollisionPaddle1(ball, paddleLeft) {
-    if(ball.x <= paddleLeft.x && ball.y < paddleLeft.y + paddleLeft.h/2 && ball.y > paddleLeft.y - paddleLeft.h/2){
+function checkCollisionPaddle2(ball, paddleRight) {
+    if(ballBorderRightX >= paddleRight.borderLeft ){
         return true;
     }
 }
+
+
 

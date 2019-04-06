@@ -1,8 +1,14 @@
 function Ball() {
     this.x = 360;
     this.y = 175;
+    this.r = 14;
     this.xSpeed = 4;
     this.ySpeed = 4;
+
+    this.borderLeft = this.x - this.r;
+    this.borderRight = this.x + this.r;
+    this.borderTop = this.y - this.r;
+    this.borderBot = this.y + this.r;
 
     this.reset = function () {
         this.x = 360;
@@ -12,7 +18,7 @@ function Ball() {
     this.show = function () {
         fill(80);
         rectMode(CENTER);
-        circle(this.x, this.y, 14);
+        circle(this.x, this.y, this.r);
         rectMode(CORNER);
     };
     this.update = function () {
